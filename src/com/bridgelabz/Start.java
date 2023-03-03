@@ -1,6 +1,7 @@
 package com.bridgelabz;
 
 public class Start {
+    static int TotalEmpHours=0;
     public double CheckEmpPresentOrNot(){
         System.out.println("Checking whether the Employee is Present or Absent...");
         double empCheck = Math.floor(Math.random() * 10) % 2;
@@ -10,7 +11,6 @@ public class Start {
             System.out.println("Employee is ABSENT.");
         return empCheck;
     }
-
     public int CalculateDailyEmpWage(double EmpPresent){
         int empHours,empWage,empWagePerHour=20;
         switch((int) EmpPresent){
@@ -29,6 +29,7 @@ public class Start {
 
         empWage = empHours * empWagePerHour;
         System.out.println("Employee Hours: "+empHours);
+        TotalEmpHours+=empHours;
         System.out.println("Employee Daily Wage: "+empWage);
         return empWage;
     }
@@ -36,13 +37,15 @@ public class Start {
         System.out.println("Welcome to Employee Wage Computation Program on Master Branch");
         Start obj= new Start();
 
+        int totalWorkingHours=100;
         int totalWorkingDaysPerMonth = 20;
-        int empMonthlyWage=0;
-        for(int day=0 ; day<=totalWorkingDaysPerMonth ; day++){
+        int empMonthlyWage=0,totalWorkingDays=0;
+        while(TotalEmpHours<=totalWorkingHours && totalWorkingDays<totalWorkingDaysPerMonth){
+            totalWorkingDays++;
             double empPresent = obj.CheckEmpPresentOrNot();
             int empDailyWage= obj.CalculateDailyEmpWage(empPresent);
             empMonthlyWage= empMonthlyWage + empDailyWage;
         }
-        System.out.println("Employee Monthly Wage: "+empMonthlyWage);
+        System.out.println("Employee Monthly Wage when total working hours reached in a month: "+empMonthlyWage);
     }
 }
