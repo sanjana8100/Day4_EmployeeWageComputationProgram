@@ -13,16 +13,20 @@ public class Start {
 
     public int CalculateDailyEmpWage(double EmpPresent){
         int empHours,empWage,empWagePerHour=20;
-        if(EmpPresent==1.0){
-            empHours = 8;
-            System.out.println("Employee is working FULL TIME.");
+        switch((int) EmpPresent){
+            case 1:
+                empHours = 8;
+                System.out.println("Employee is working FULL TIME.");
+                break;
+            case 2:
+                empHours = 4;
+                System.out.println("Employee is working PART TIME.");
+                break;
+            default:
+                empHours=0;
+                break;
         }
-        else if(EmpPresent==2.0) {
-            empHours = 4;
-            System.out.println("Employee is working PART TIME.");
-        }
-        else
-            empHours=0;
+
         empWage = empHours * empWagePerHour;
         System.out.println("Employee Hours: "+empHours);
         System.out.println("Employee Daily Wage: "+empWage);
