@@ -1,7 +1,6 @@
 package com.bridgelabz;
 
 public class Start {
-
     public double CheckEmpPresentOrNot(){
         System.out.println("Checking whether the Employee is Present or Absent...");
         double empCheck = Math.floor(Math.random() * 10) % 2;
@@ -14,8 +13,14 @@ public class Start {
 
     public int CalculateDailyEmpWage(double EmpPresent){
         int empHours,empWage,empWagePerHour=20;
-        if(EmpPresent==1.0)
+        if(EmpPresent==1.0){
             empHours = 8;
+            System.out.println("Employee is working FULL TIME.");
+        }
+        else if(EmpPresent==2.0) {
+            empHours = 4;
+            System.out.println("Employee is working PART TIME.");
+        }
         else
             empHours=0;
         empWage = empHours * empWagePerHour;
