@@ -35,8 +35,14 @@ public class Start {
     public static void main(String[] main){
         System.out.println("Welcome to Employee Wage Computation Program on Master Branch");
         Start obj= new Start();
-        double empPresent = obj.CheckEmpPresentOrNot();
-        int empDailyWage= obj.CalculateDailyEmpWage(empPresent);
 
+        int totalWorkingDaysPerMonth = 20;
+        int empMonthlyWage=0;
+        for(int day=0 ; day<=totalWorkingDaysPerMonth ; day++){
+            double empPresent = obj.CheckEmpPresentOrNot();
+            int empDailyWage= obj.CalculateDailyEmpWage(empPresent);
+            empMonthlyWage= empMonthlyWage + empDailyWage;
+        }
+        System.out.println("Employee Monthly Wage: "+empMonthlyWage);
     }
 }
